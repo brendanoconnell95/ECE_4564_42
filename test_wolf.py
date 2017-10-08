@@ -10,7 +10,9 @@ def getAnswer(str):
 
 import socket
 import sys
+import os
 
 input = raw_input("Question: ")
 ans = getAnswer(input)
 print(ans)
+os.system("espeak %s" % (ans))
