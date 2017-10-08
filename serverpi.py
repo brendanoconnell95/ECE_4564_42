@@ -1,9 +1,14 @@
 
-
 # wolframalpha answer function
-#def getAnswer(str):
-#    import wolframalpha
-#    from server_params import app_id
+def getAnswer(str):
+    import wolframalpha
+    from server_params import app_id
+    client = wolframalpha.Client(app_id)
+    print('Sending question to Wolframalpha: %s' % (str))
+    result = client.query(str)
+    stringAnswer = next(result.results).text
+    print('Received answer from Wolframalpha: %s' % (stringAnswer))
+    return stringAnswer
 
 # server reply function
 #def reply(clientpi):
@@ -34,3 +39,5 @@ while 1:
     print('Accepted client connection from %d on port %d' % (client, address))
     data = client.recv(socket_size)
     if data:
+        message = pickle.loads(data)
+        print('Received question: %s' % (message))
