@@ -2,19 +2,18 @@
 # wolframalpha answer function
 def getAnswer(str):
     import wolframalpha
+    import os
     from server_params import app_id
     client = wolframalpha.Client(app_id)
     print('Sending question to Wolframalpha: %s' % (str))
     result = client.query(str)
     stringAnswer = next(result.results).text
     print('Received answer from Wolframalpha: %s' % (stringAnswer))
+    os.system("espeak %s 2>/dev/null" % (stringAnswer))
     return stringAnswer
 
 # server reply function
 #def reply(clientpi):
-
-
-#def speak:
 
 
 import socket
