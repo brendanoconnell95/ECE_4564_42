@@ -12,7 +12,8 @@ import socket
 import sys
 import os
 
-input = raw_input("Question: ")
+input = input("Question: ")
 ans = getAnswer(input)
 print(ans)
-os.system("espeak %s" % (ans))
+
+os.system("espeak %s 2>/dev/null" % (ans))
