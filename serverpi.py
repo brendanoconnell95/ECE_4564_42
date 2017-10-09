@@ -9,12 +9,15 @@ def getAnswer(str):
     result = client.query(str)
     stringAnswer = next(result.results).text
     print('Received answer from Wolframalpha: %s' % (stringAnswer))
+    print('Speaking answer parsed for only alphanumeric and space characters: %s' % (stringAnswer))
     os.system("espeak %s 2>/dev/null" % (stringAnswer))
     return stringAnswer
 
 # server reply function
-#def reply(clientpi):
-
+def reply(clientpi, response):
+    replyPickle = pickle.dumps(response)
+    clientin.send(replyPickle)
+    print('Sending Answer: %s' % (response))
 
 import socket
 import sys
@@ -40,3 +43,5 @@ while 1:
     if data:
         message = pickle.loads(data)
         print('Received question: %s' % (message))
+        myAnswer = getAnswer(message)
+        reply(client, myAnswer)
