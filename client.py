@@ -28,11 +28,8 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 ipaddr = sys.argv[2]
-print (ipaddr)
 port = sys.argv[4]
-print (port)
 hashtag = sys.argv[6]
-print (hashtag)
 
 def send(ipaddr, port, question):
     picklepayload = pickle.dumps(question)
