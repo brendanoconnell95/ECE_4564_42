@@ -23,7 +23,7 @@ def getAnswer(str):
 # server reply function
 def reply(clientpi, response):
     replyPickle = pickle.dumps(response)
-    clientin.send(replyPickle)
+    clientpi.send(replyPickle)
     print('[Checkpoint 13] Sending Answer: %s' % (response))
 
 import socket
