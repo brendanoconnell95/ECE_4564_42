@@ -20,7 +20,6 @@ def execute_unix(inputcommand):
 
 input = input("Question: ")
 ans = getAnswer(input)
-print(ans)
 
 #os.system("espeak %s 2>/dev/null" % (ans))
 execute_unix('espeak -ven+f3 -k5 -s150 --punct="<characters>" "%s" 2>>/dev/null' % ans)
