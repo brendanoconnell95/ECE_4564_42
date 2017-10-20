@@ -23,8 +23,8 @@ class MyStreamListener(StreamListener):
     def on_data(self,data):
         question = data.split('"text":"')[1].split('",')[0]
         
-        print (temp)
-        send(ipaddr, port, question)
+        print (question)
+        #send(ipaddr, port, question)
         
         return True
     
